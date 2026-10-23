@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>College Event Registration Portal</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <h1>College Event Registration Portal</h1>
+    <nav>
+      <a href="#events">Events</a>
+      <a href="#my-registrations">My Registrations (<span id="reg-count">0</span>)</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="events">
+      <div class="toolbar">
+        <input type="search" id="search" placeholder="Search events...">
+        <select id="category-filter">
+          <option value="">All Categories</option>
+        </select>
+      </div>
+      <div id="event-grid" class="grid"></div>
+    </section>
+
+    <section id="my-registrations">
+      <h2>My Registrations</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Student</th><th>Reg. No</th><th>Event</th><th>Date</th><th>Action</th></tr>
+          </thead>
+          <tbody id="reg-body"></tbody>
+        </table>
+      </div>
+      <p id="no-reg" class="muted">No registrations yet.</p>
+    </section>
+  </main>
+
+  <dialog id="reg-modal">
+    <form id="reg-form" novalidate>
+      <h2 id="modal-title">Register</h2>
+      <label>Student Name <input type="text" name="name" id="f-name"></label>
+      <small class="err" data-for="name"></small>
+      <label>Register Number <input type="text" name="regno" id="f-regno" placeholder="9-12 digits"></label>
+      <small class="err" data-for="regno"></small>
+      <label>Email <input type="email" name="email" id="f-email"></label>
+      <small class="err" data-for="email"></small>
+      <label>Phone <input type="tel" name="phone" id="f-phone" placeholder="10 digits"></label>
+      <small class="err" data-for="phone"></small>
+      <div class="actions">
+        <button type="button" id="cancel-btn" class="ghost">Cancel</button>
+        <button type="submit">Submit</button>
+      </div>
+    </form>
+  </dialog>
+
+  <div id="toast" class="toast" role="status"></div>
+
+  <footer>College Event Registration Portal &middot; HTML, CSS, JavaScript</footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
